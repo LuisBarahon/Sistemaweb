@@ -25,6 +25,13 @@ class UserController extends Controller
         ]);
         return redirect()->route('users.index')->with('success','Usuario creado');    
     }
+
+    public function show(User $user)
+    {
+        // $user = User::findOrFail($id);
+        // dd($user);
+        return view('users.show', compact('user'));
+    }
     
     public function edit(User $user)
     {
