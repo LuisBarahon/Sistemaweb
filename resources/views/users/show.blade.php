@@ -11,6 +11,11 @@
                         </div>
                         {{-- body --}}
                         <div class="card-body">
+                            @if (session('success'))
+                                <div class="alert alert-success" role="success">
+                                    {{ session('success') }}
+                                </div>
+                                @endif
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="card card-user">
@@ -34,7 +39,7 @@
                                         </div>
                                         <div class="card-footer">
                                             <div class="button-container">
-                                                <a href="{{ route('users.index', $user->id) }}" class="btn btn-sm btn-success mr-3"> Volver </a>
+                                                <a href="{{ route('users.index', $user->id) }}" class="btn btn-sm btn-danger mr-3"> Volver </a>
                                             </div>
                                         </div>
                                     </div>

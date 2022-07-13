@@ -19,11 +19,11 @@ class UserController extends Controller
      
     public function store(Request $request)
     {
-        User::create($request->only('name', 'username', 'email')
+        $user = User::create($request->only('name', 'username', 'email')
     + [
         'password' => bcrypt($request->input('password')),    
         ]);
-        return redirect()->route('users.index')->with('success','Usuario creado');    
+        return redirect()->route('users.show', $user->id)->with('success','Usuario creado');    
     }
 
     public function show(User $user)
@@ -38,20 +38,24 @@ class UserController extends Controller
         return view('users.edit', compact('user'));
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, User $user)
     {
-        $user=User::findOrFail($id);
+        // $user=User::findOrFail($id);
         $data = $request->only('name', 'username', 'email');
-        if(trim($request->password)=='')
-        {
-            $data=$request->except('password');
-        }
-        else{
-            $data=$request->all();
-            $data['password']=bcrypt($request->password);
-        }
+        $password=$request->input('password');
+        if($password)
+        $data['password'] = bcrypt($password);
+        // (trim($request->password)=='')
+        // {
+        //     $data=$request->except('password');
+        // }if
+        // else{
+        //     $data=$request->all();
+        //     $data['password']=bcrypt($request->password);
+        // }
+
         $user->update($data);
-        return redirect()->route('users.index')->with('success', 'Informacion actualizada');
+        return redirect()->route('users.show', $user->id)->with('success', 'Informacion actualizada');
     }
 
     public function destroy(User $user)
