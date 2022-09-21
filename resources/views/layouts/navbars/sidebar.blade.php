@@ -11,16 +11,16 @@
     <ul class="nav">
       <li class="nav-item{{ $activePage == 'users' ? ' active' : '' }}">
         <a class="nav-link" href="{{ route('users.index') }}">
-          <i class="material-icons">content_paste</i>
+          <i class="material-icons">person</i>
             <p>Usuarios</p>
         </a>
       </li>
-      {{-- <li class="nav-item{{ $activePage == 'dashboard' ? ' active' : '' }}">
+      <li class="nav-item{{ $activePage == 'dashboard' ? ' active' : '' }}">
         <a class="nav-link" href="{{ route('home') }}">
           <i class="material-icons">dashboard</i>
-            <p>{{ __('Dashboard') }}</p>
+            <p>{{ __('Menu') }}</p>
         </a>
-      </li>
+      <!-- </li>
       <li class="nav-item {{ ($activePage == 'profile' || $activePage == 'user-management') ? ' active' : '' }}">
         <a class="nav-link" data-toggle="collapse" href="#laravelExample" aria-expanded="true">
           <i><img style="width:25px" src="{{ asset('/img/laravel.svg') }}"></i>
@@ -74,14 +74,14 @@
         <a class="nav-link" href="#">
           <i class="material-icons">language</i>
           <p>{{ __('RTL Support') }}</p>
-        </a> --}}
-      {{-- </li>
+        </a>
+      </li>
       <li class="nav-item active-pro{{ $activePage == 'upgrade' ? ' active' : '' }}">
         <a class="nav-link text-white bg-danger" href="#">
           <i class="material-icons text-white">unarchive</i>
           <p>{{ __('Upgrade to PRO') }}</p>
         </a>
-      </li> --}}
+      </li> -->
     </ul>
   </div>
 </div>
